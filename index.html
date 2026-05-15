@@ -364,7 +364,61 @@
     letter-spacing: 0.05em;
   }
 
-  #about, #services, #process, #testimonials {
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--parchment);
+    transition: all 0.3s;
+    transform-origin: center;
+  }
+
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .nav-mobile-menu {
+    display: none;
+    position: fixed;
+    top: 61px;
+    left: 0; right: 0;
+    background: rgba(45,74,53,0.98);
+    border-bottom: 1px solid rgba(176,141,74,0.2);
+    z-index: 99;
+    flex-direction: column;
+    padding: 16px 0;
+  }
+
+  .nav-mobile-menu.open { display: flex; }
+
+  .nav-mobile-menu a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    color: rgba(245,239,224,0.85);
+    text-decoration: none;
+    padding: 14px 28px;
+    border-bottom: 1px solid rgba(176,141,74,0.1);
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .nav-mobile-menu a:last-child { border-bottom: none; }
+  .nav-mobile-menu a:hover { color: var(--gold-light); background: rgba(245,239,224,0.04); }
+
+  @media (max-width: 900px) {
+    .nav-hamburger { display: flex; }
+  }
     scroll-margin-top: 80px;
   }
   .ornament {
@@ -1008,7 +1062,18 @@
     <li><a href="#testimonials">Stories</a></li>
   </ul>
   <a href="mailto:taylorfturner@gmail.com" class="nav-cta">Begin Your Search</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#process" class="mobile-link">Our Process</a>
+  <a href="#testimonials" class="mobile-link">Stories</a>
+
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -1383,6 +1448,21 @@
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
 </script>
 </body>
 </html>
