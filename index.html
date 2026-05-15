@@ -509,12 +509,18 @@
 
   @media (max-width: 900px) {
     .bio {
-      padding: 0 24px;
-      margin-bottom: 60px;
+      padding: 80px 24px 0;
+      margin-bottom: 40px;
     }
     .bio-body {
       grid-template-columns: 1fr;
       gap: 36px;
+    }
+    .bio-header {
+      justify-content: center;
+    }
+    .bio-header-text {
+      text-align: center;
     }
   }
 
@@ -899,10 +905,7 @@
       grid-template-columns: 1fr;
       min-height: auto;
     }
-    .hero-left {
-      padding: 120px 32px 80px;
-      order: 1;
-    }
+    .hero-left { padding: 140px 32px 60px; }
     .hero-right {
       order: 2;
       height: 400px;
