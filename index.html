@@ -511,8 +511,8 @@
   .bio-memberships {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
-    gap: 28px 18px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px 14px;
     padding: 0;
     margin: 0;
   }
@@ -522,14 +522,14 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 10px;
+    gap: 6px;
   }
 
   .bio-memberships a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 6px;
     text-decoration: none;
     color: inherit;
     transition: opacity 0.2s;
@@ -540,16 +540,16 @@
   }
 
   .bio-memberships img {
-    width: 84px;
-    height: 84px;
+    width: 52px;
+    height: 52px;
     object-fit: contain;
     display: block;
   }
 
   .bio-memberships span {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 13px;
-    line-height: 1.3;
+    font-size: 12px;
+    line-height: 1.25;
     color: var(--ink-mid);
   }
 
@@ -1054,6 +1054,9 @@
     .stat-number { font-size: 22px; }
     .stat-label { font-size: 10px; }
 
+    /* Society memberships: 3 columns on phones */
+    .bio-memberships { grid-template-columns: repeat(3, 1fr); }
+
     /* Services: single column */
     .service-card { flex: 1 1 100%; }
 
@@ -1106,7 +1109,7 @@
       Uncover the <em>story</em><br>your family<br>carried forward
     </h1>
     <p class="hero-subhead">
-      Expert research spanning centuries of records, immigration histories, 
+      Expert research spanning centuries of records, immigration histories,
       and ancestral lineages — meticulously documented and brought to life.
     </p>
 
@@ -1256,18 +1259,18 @@
     <div class="bio-right">
       <div class="bio-memberships-label">Society Memberships</div>
       <ul class="bio-memberships">
-        <li><a href="https://www.dsdi1776.com/" target="_blank" rel="noopener"><img src="images/societies/dsdi.webp" alt="Descendants of the Signers of the Declaration of Independence insignia" loading="lazy" width="84" height="84"><span>Descendants of the Signers of the Declaration of Independence</span></a></li>
-        <li><a href="https://ofpa.org/" target="_blank" rel="noopener"><img src="images/societies/ofpa.webp" alt="Order of Founders and Patriots of America insignia" loading="lazy" width="84" height="84"><span>Order of Founders and Patriots of America</span></a></li>
-        <li><a href="https://www.jamestowne.org/" target="_blank" rel="noopener"><img src="images/societies/jamestowne.webp" alt="Jamestowne Society insignia" loading="lazy" width="84" height="84"><span>Jamestowne Society</span></a></li>
-        <li><a href="https://vascw.org/" target="_blank" rel="noopener"><img src="images/societies/colonial-wars.webp" alt="Society of Colonial Wars insignia" loading="lazy" width="84" height="84"><span>Society of Colonial Wars</span></a></li>
-        <li><a href="https://sr1776.org/" target="_blank" rel="noopener"><img src="images/societies/sons-of-the-revolution.webp" alt="Society of the Sons of the Revolution insignia" loading="lazy" width="84" height="84"><span>Society of the Sons of the Revolution</span></a></li>
-        <li><a href="https://scv.org/" target="_blank" rel="noopener"><img src="images/societies/scv.webp" alt="Sons of Confederate Veterans insignia" loading="lazy" width="84" height="84"><span>Sons of Confederate Veterans</span></a></li>
-        <li><a href="https://www.magnacharta.com/" target="_blank" rel="noopener"><img src="images/societies/magna-charta.webp" alt="Order of Magna Carta insignia" loading="lazy" width="84" height="84"><span>Order of Magna Carta</span></a></li>
-        <li><a href="https://www.washingtonfamilydescendants.org/" target="_blank" rel="noopener"><img src="images/societies/washington.webp" alt="Washington Family Descendants insignia" loading="lazy" width="84" height="84"><span>Washington Family Descendants</span></a></li>
-        <li><a href="https://www.huguenotmanakin.org/" target="_blank" rel="noopener"><img src="images/societies/huguenot-manakin.webp" alt="Huguenot Society of the Founders of Manakin in the Colony of Virginia insignia" loading="lazy" width="84" height="84"><span>Huguenot Society of the Founders of Manakin in the Colony of Virginia</span></a></li>
-        <li><a href="https://gswar1812.org/" target="_blank" rel="noopener"><img src="images/societies/war-of-1812.webp" alt="Society of the War of 1812 insignia" loading="lazy" width="84" height="84"><span>Society of the War of 1812</span></a></li>
-        <li><a href="https://themayflowersociety.org/" target="_blank" rel="noopener"><img src="images/societies/mayflower.webp" alt="Society of Mayflower Descendants insignia" loading="lazy" width="84" height="84"><span>Society of Mayflower Descendants</span></a></li>
-        <li class="pending"><a href="https://www.aztecclub.org/" target="_blank" rel="noopener"><img src="images/societies/aztec-club.webp" alt="Aztec Club of 1847 insignia" loading="lazy" width="84" height="84"><span>Aztec Club of 1847</span><em>Application pending</em></a></li>
+        <li><a href="https://www.dsdi1776.com/" target="_blank" rel="noopener"><img src="images/societies/dsdi.webp" alt="Descendants of the Signers of the Declaration of Independence insignia" loading="lazy" width="52" height="52"><span>Descendants of the Signers of the Declaration of Independence</span></a></li>
+        <li><a href="https://ofpa.org/" target="_blank" rel="noopener"><img src="images/societies/ofpa.webp" alt="Order of Founders and Patriots of America insignia" loading="lazy" width="52" height="52"><span>Order of Founders and Patriots of America</span></a></li>
+        <li><a href="https://www.jamestowne.org/" target="_blank" rel="noopener"><img src="images/societies/jamestowne.webp" alt="Jamestowne Society insignia" loading="lazy" width="52" height="52"><span>Jamestowne Society</span></a></li>
+        <li><a href="https://vascw.org/" target="_blank" rel="noopener"><img src="images/societies/colonial-wars.webp" alt="Society of Colonial Wars insignia" loading="lazy" width="52" height="52"><span>Society of Colonial Wars</span></a></li>
+        <li><a href="https://sr1776.org/" target="_blank" rel="noopener"><img src="images/societies/sons-of-the-revolution.webp" alt="Society of the Sons of the Revolution insignia" loading="lazy" width="52" height="52"><span>Society of the Sons of the Revolution</span></a></li>
+        <li><a href="https://scv.org/" target="_blank" rel="noopener"><img src="images/societies/scv.webp" alt="Sons of Confederate Veterans insignia" loading="lazy" width="52" height="52"><span>Sons of Confederate Veterans</span></a></li>
+        <li><a href="https://www.magnacharta.com/" target="_blank" rel="noopener"><img src="images/societies/magna-charta.webp" alt="Order of Magna Carta insignia" loading="lazy" width="52" height="52"><span>Order of Magna Carta</span></a></li>
+        <li><a href="https://www.washingtonfamilydescendants.org/" target="_blank" rel="noopener"><img src="images/societies/washington.webp" alt="Washington Family Descendants insignia" loading="lazy" width="52" height="52"><span>Washington Family Descendants</span></a></li>
+        <li><a href="https://www.huguenotmanakin.org/" target="_blank" rel="noopener"><img src="images/societies/huguenot-manakin.webp" alt="Huguenot Society of the Founders of Manakin in the Colony of Virginia insignia" loading="lazy" width="52" height="52"><span>Huguenot Society of the Founders of Manakin in the Colony of Virginia</span></a></li>
+        <li><a href="https://gswar1812.org/" target="_blank" rel="noopener"><img src="images/societies/war-of-1812.webp" alt="Society of the War of 1812 insignia" loading="lazy" width="52" height="52"><span>Society of the War of 1812</span></a></li>
+        <li><a href="https://themayflowersociety.org/" target="_blank" rel="noopener"><img src="images/societies/mayflower.webp" alt="Society of Mayflower Descendants insignia" loading="lazy" width="52" height="52"><span>Society of Mayflower Descendants</span></a></li>
+        <li class="pending"><a href="https://www.aztecclub.org/" target="_blank" rel="noopener"><img src="images/societies/aztec-club.webp" alt="Aztec Club of 1847 insignia" loading="lazy" width="52" height="52"><span>Aztec Club of 1847</span><em>Application pending</em></a></li>
       </ul>
     </div>
   </div>
@@ -1325,8 +1328,8 @@
       <h2>Our Research<br><em style="font-style:italic; color:var(--forest);">Process</em></h2>
     </div>
     <p>
-      Genealogical research demands rigor, patience, and deep archival knowledge. 
-      Our structured approach ensures every branch of your family tree is grounded 
+      Genealogical research demands rigor, patience, and deep archival knowledge.
+      Our structured approach ensures every branch of your family tree is grounded
       in verifiable, documented evidence.
     </p>
   </div>
@@ -1390,7 +1393,7 @@
     <div class="testimonial-card">
       <div class="testimonial-stars">★★★★★</div>
       <p class="testimonial-text">
-        Tracing the American story to rightly stand in place as a Son of the Revolution is an honor. 
+        Tracing the American story to rightly stand in place as a Son of the Revolution is an honor.
         I am truly indebted to Taylor Turner for his guidance, his knowledge, his expertise and kind perseverance throughout the process. His skill in detangling and weaving my own personal heritage into the Great American Tapestry is indeed a monumental gift.
       </p>
       <div class="testimonial-footer">
