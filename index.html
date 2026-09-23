@@ -496,7 +496,12 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
-    align-items: start;
+    align-items: stretch;
+  }
+
+  .bio-right {
+    display: flex;
+    flex-direction: column;
   }
 
   .bio-memberships-label {
@@ -513,7 +518,9 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px 14px;
-    padding: 0;
+    flex: 1;
+    align-content: space-between;
+    padding: 0 0 6px;
     margin: 0;
   }
 
@@ -540,15 +547,15 @@
   }
 
   .bio-memberships img {
-    width: 52px;
-    height: 52px;
+    width: 72px;
+    height: 72px;
     object-fit: contain;
     display: block;
   }
 
   .bio-memberships span {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.25;
     color: var(--ink-mid);
   }
@@ -1259,18 +1266,18 @@
     <div class="bio-right">
       <div class="bio-memberships-label">Society Memberships</div>
       <ul class="bio-memberships">
-        <li><a href="https://www.dsdi1776.com/" target="_blank" rel="noopener"><img src="images/societies/dsdi.webp" alt="Descendants of the Signers of the Declaration of Independence insignia" loading="lazy" width="52" height="52"><span>Descendants of the Signers of the Declaration of Independence</span></a></li>
-        <li><a href="https://ofpa.org/" target="_blank" rel="noopener"><img src="images/societies/ofpa.webp" alt="Order of Founders and Patriots of America insignia" loading="lazy" width="52" height="52"><span>Order of Founders and Patriots of America</span></a></li>
-        <li><a href="https://www.jamestowne.org/" target="_blank" rel="noopener"><img src="images/societies/jamestowne.webp" alt="Jamestowne Society insignia" loading="lazy" width="52" height="52"><span>Jamestowne Society</span></a></li>
-        <li><a href="https://vascw.org/" target="_blank" rel="noopener"><img src="images/societies/colonial-wars.webp" alt="Society of Colonial Wars insignia" loading="lazy" width="52" height="52"><span>Society of Colonial Wars</span></a></li>
-        <li><a href="https://sr1776.org/" target="_blank" rel="noopener"><img src="images/societies/sons-of-the-revolution.webp" alt="Society of the Sons of the Revolution insignia" loading="lazy" width="52" height="52"><span>Society of the Sons of the Revolution</span></a></li>
-        <li><a href="https://scv.org/" target="_blank" rel="noopener"><img src="images/societies/scv.webp" alt="Sons of Confederate Veterans insignia" loading="lazy" width="52" height="52"><span>Sons of Confederate Veterans</span></a></li>
-        <li><a href="https://www.magnacharta.com/" target="_blank" rel="noopener"><img src="images/societies/magna-charta.webp" alt="Order of Magna Carta insignia" loading="lazy" width="52" height="52"><span>Order of Magna Carta</span></a></li>
-        <li><a href="https://www.washingtonfamilydescendants.org/" target="_blank" rel="noopener"><img src="images/societies/washington.webp" alt="Washington Family Descendants insignia" loading="lazy" width="52" height="52"><span>Washington Family Descendants</span></a></li>
-        <li><a href="https://www.huguenotmanakin.org/" target="_blank" rel="noopener"><img src="images/societies/huguenot-manakin.webp" alt="Huguenot Society of the Founders of Manakin in the Colony of Virginia insignia" loading="lazy" width="52" height="52"><span>Huguenot Society of the Founders of Manakin in the Colony of Virginia</span></a></li>
-        <li><a href="https://gswar1812.org/" target="_blank" rel="noopener"><img src="images/societies/war-of-1812.webp" alt="Society of the War of 1812 insignia" loading="lazy" width="52" height="52"><span>Society of the War of 1812</span></a></li>
-        <li><a href="https://themayflowersociety.org/" target="_blank" rel="noopener"><img src="images/societies/mayflower.webp" alt="Society of Mayflower Descendants insignia" loading="lazy" width="52" height="52"><span>Society of Mayflower Descendants</span></a></li>
-        <li class="pending"><a href="https://www.aztecclub.org/" target="_blank" rel="noopener"><img src="images/societies/aztec-club.webp" alt="Aztec Club of 1847 insignia" loading="lazy" width="52" height="52"><span>Aztec Club of 1847</span><em>Application pending</em></a></li>
+        <li><a href="https://www.dsdi1776.com/" target="_blank" rel="noopener"><img src="images/societies/dsdi.webp" alt="Descendants of the Signers of the Declaration of Independence insignia" loading="lazy" width="72" height="72"><span>Descendants of the Signers of the Declaration of Independence</span></a></li>
+        <li><a href="https://ofpa.org/" target="_blank" rel="noopener"><img src="images/societies/ofpa.webp" alt="Order of Founders and Patriots of America insignia" loading="lazy" width="72" height="72"><span>Order of Founders and Patriots of America</span></a></li>
+        <li><a href="https://www.jamestowne.org/" target="_blank" rel="noopener"><img src="images/societies/jamestowne.webp" alt="Jamestowne Society insignia" loading="lazy" width="72" height="72"><span>Jamestowne Society</span></a></li>
+        <li><a href="https://vascw.org/" target="_blank" rel="noopener"><img src="images/societies/colonial-wars.webp" alt="Society of Colonial Wars insignia" loading="lazy" width="72" height="72"><span>Society of Colonial Wars</span></a></li>
+        <li><a href="https://sr1776.org/" target="_blank" rel="noopener"><img src="images/societies/sons-of-the-revolution.webp" alt="Society of the Sons of the Revolution insignia" loading="lazy" width="72" height="72"><span>Society of the Sons of the Revolution</span></a></li>
+        <li><a href="https://scv.org/" target="_blank" rel="noopener"><img src="images/societies/scv.webp" alt="Sons of Confederate Veterans insignia" loading="lazy" width="72" height="72"><span>Sons of Confederate Veterans</span></a></li>
+        <li><a href="https://www.magnacharta.com/" target="_blank" rel="noopener"><img src="images/societies/magna-charta.webp" alt="Order of Magna Carta insignia" loading="lazy" width="72" height="72"><span>Order of Magna Carta</span></a></li>
+        <li><a href="https://www.washingtonfamilydescendants.org/" target="_blank" rel="noopener"><img src="images/societies/washington.webp" alt="Washington Family Descendants insignia" loading="lazy" width="72" height="72"><span>Washington Family Descendants</span></a></li>
+        <li><a href="https://www.huguenotmanakin.org/" target="_blank" rel="noopener"><img src="images/societies/huguenot-manakin.webp" alt="Huguenot Society of the Founders of Manakin in the Colony of Virginia insignia" loading="lazy" width="72" height="72"><span>Huguenot Society of the Founders of Manakin in the Colony of Virginia</span></a></li>
+        <li><a href="https://gswar1812.org/" target="_blank" rel="noopener"><img src="images/societies/war-of-1812.webp" alt="Society of the War of 1812 insignia" loading="lazy" width="72" height="72"><span>Society of the War of 1812</span></a></li>
+        <li><a href="https://themayflowersociety.org/" target="_blank" rel="noopener"><img src="images/societies/mayflower.webp" alt="Society of Mayflower Descendants insignia" loading="lazy" width="72" height="72"><span>Society of Mayflower Descendants</span></a></li>
+        <li class="pending"><a href="https://www.aztecclub.org/" target="_blank" rel="noopener"><img src="images/societies/aztec-club.webp" alt="Aztec Club of 1847 insignia" loading="lazy" width="72" height="72"><span>Aztec Club of 1847</span><em>Application pending</em></a></li>
       </ul>
     </div>
   </div>
