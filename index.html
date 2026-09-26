@@ -516,9 +516,8 @@
   .bio-memberships {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-auto-rows: 1fr;
-    gap: 24px 14px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px 14px;
     flex: 1;
     align-content: space-between;
     padding: 0 0 6px;
@@ -541,7 +540,6 @@
     text-decoration: none;
     color: inherit;
     transition: opacity 0.2s;
-    max-width: 100%;
   }
 
   .bio-memberships a:hover span {
@@ -560,8 +558,6 @@
     font-size: 13px;
     line-height: 1.25;
     color: var(--ink-mid);
-    max-width: 100%;
-    overflow-wrap: break-word;
   }
 
   .bio-memberships em {
@@ -570,6 +566,7 @@
     font-size: 9px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
+    white-space: nowrap;
     color: var(--gold);
     margin-top: -4px;
   }
@@ -1065,7 +1062,7 @@
     .stat-label { font-size: 10px; }
 
     /* Society memberships: 3 columns on phones */
-    .bio-memberships { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .bio-memberships { grid-template-columns: repeat(3, 1fr); }
 
     /* Services: single column */
     .service-card { flex: 1 1 100%; }
@@ -1280,7 +1277,6 @@
         <li><a href="https://www.huguenotmanakin.org/" target="_blank" rel="noopener"><img src="images/societies/huguenot-manakin.webp" alt="Huguenot Society of the Founders of Manakin in the Colony of Virginia insignia" loading="lazy" width="72" height="72"><span>Huguenot Society of the Founders of Manakin in the Colony of Virginia</span></a></li>
         <li><a href="https://gswar1812.org/" target="_blank" rel="noopener"><img src="images/societies/war-of-1812.webp" alt="Society of the War of 1812 insignia" loading="lazy" width="72" height="72"><span>Society of the War of 1812</span></a></li>
         <li><a href="https://themayflowersociety.org/" target="_blank" rel="noopener"><img src="images/societies/mayflower.webp" alt="Society of Mayflower Descendants insignia" loading="lazy" width="72" height="72"><span>Society of Mayflower Descendants</span></a></li>
-        <li class="pending"><a href="https://www.aztecclub.org/" target="_blank" rel="noopener"><img src="images/societies/aztec-club.webp" alt="Aztec Club of 1847 insignia" loading="lazy" width="72" height="72"><span>Aztec Club of 1847</span><em>Application pending</em></a></li>
       </ul>
     </div>
   </div>
