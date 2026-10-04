@@ -135,7 +135,7 @@
   .hero-tree-wrapper {
     position: absolute; inset: 0;
     display: flex; align-items: center; justify-content: center;
-    padding: 60px;
+    padding: 140px 36px 40px;
   }
 
   .hero-tree-wrapper svg {
@@ -853,7 +853,7 @@
     font-weight: 400;
     line-height: 1.85;
     color: rgba(245,239,224,0.88);
-    font-style: italic;
+    font-style: normal;
     flex: 1;
     margin-bottom: 28px;
   }
@@ -1090,6 +1090,37 @@
     .intro h2 { font-size: clamp(26px, 8vw, 40px); }
     .intro p { font-size: 16px; }
   }
+  /* ─── HEADLINES IN LOGO FONT ─────────────────── */
+  .hero-headline,
+  .bio-name,
+  .services-header h2,
+  .process-header h2,
+  .testimonial-section h2,
+  .step h4 {
+    font-family: 'Cinzel', serif !important;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+  }
+  .step h4 { font-size: 19px; line-height: 1.3; }
+  .hero-headline em,
+  .process-header h2 em,
+  .testimonial-section h2 em {
+    font-style: normal !important;
+  }
+  .testimonial-author,
+  .testimonial-location,
+  .testimonial-society {
+    color: #fff !important;
+    opacity: 1 !important;
+  }
+  .step p { color: #000 !important; }
+  .testimonial-stars { color: #f5c518 !important; opacity: 1 !important; }
+  .fitz-note-text {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-style: normal !important;
+    font-size: 16px;
+  }
+  .fitz-note-text em { font-style: normal; font-weight: 600; }
 </style>
 </head>
 <body>
@@ -1123,9 +1154,8 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow">Professional Genealogical Research</div>
     <h1 class="hero-headline">
-      Uncover the <em>story</em><br>your family<br>carried forward
+      Uncover your family’s story
     </h1>
     <p class="hero-subhead">
       Expert research spanning centuries of records, immigration histories,
@@ -1147,106 +1177,94 @@
     <div class="hero-image-container">
       <div class="hero-panel-art">
         <div class="hero-panel-bg"></div>
-        <div class="hero-panel-pattern"></div>
         <div class="hero-tree-wrapper">
-          <svg viewBox="0 0 480 520" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <svg viewBox="0 0 560 430" xmlns="http://www.w3.org/2000/svg" fill="none">
 
-  <!-- ═══ GENERATION LABELS ═══ -->
-  <text x="468" y="52" text-anchor="end" font-family="'Pinyon Script',cursive" font-size="11" fill="rgba(90,62,40,0.38)">Generation IV</text>
-  <text x="468" y="148" text-anchor="end" font-family="'Pinyon Script',cursive" font-size="11" fill="rgba(90,62,40,0.38)">Generation III</text>
-  <text x="468" y="272" text-anchor="end" font-family="'Pinyon Script',cursive" font-size="11" fill="rgba(90,62,40,0.38)">Generation II</text>
-  <text x="468" y="408" text-anchor="end" font-family="'Pinyon Script',cursive" font-size="11" fill="rgba(90,62,40,0.38)">Generation I</text>
+  <!-- ═══ GENERATION V — 2ND GREAT-GRANDPARENTS ═══ -->
+  <g opacity="0.35">
+    <rect x="4" y="20" width="62" height="34" rx="2" stroke="#5a3e28" stroke-width="1" fill="rgba(90,62,40,0.04)"/>
+    <text x="35" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-weight="500" font-size="10" fill="rgba(45,74,53,0.8)"><tspan x="35" y="34">2nd Great</tspan><tspan x="35" y="46">Grandfather</tspan></text>
+    <rect x="74" y="20" width="62" height="34" rx="2" stroke="#5a3e28" stroke-width="1" fill="rgba(90,62,40,0.04)"/>
+    <text x="105" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-weight="500" font-size="10" fill="rgba(45,74,53,0.8)"><tspan x="105" y="34">2nd Great</tspan><tspan x="105" y="46">Grandmother</tspan></text>
+    <rect x="144" y="20" width="62" height="34" rx="2" stroke="#5a3e28" stroke-width="1" fill="rgba(90,62,40,0.04)"/>
+    <text x="175" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-weight="500" font-size="10" fill="rgba(45,74,53,0.8)"><tspan x="175" y="34">2nd Great</tspan><tspan x="175" y="46">Grandfather</tspan></text>
+    <rect x="214" y="20" width="62" height="34" rx="2" stroke="#5a3e28" stroke-width="1" fill="rgba(90,62,40,0.04)"/>
+    <text x="245" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-weight="500" font-size="10" fill="rgba(45,74,53,0.8)"><tspan x="245" y="34">2nd Great</tspan><tspan x="245" y="46">Grandmother</tspan></text>
+    <rect x="284" y="20" width="62" height="34" rx="2" stroke="#5a3e28" stroke-width="1" fill="rgba(90,62,40,0.04)"/>
+    <text x="315" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-weight="500" font-size="10" fill="rgba(45,74,53,0.8)"><tspan x="315" y="34">2nd Great</tspan><tspan x="315" y="46">Grandfather</tspan></text>
+    <rect x="354" y="20" width="62" height="34" rx="2" stroke="#5a3e28" stroke-width="1" fill="rgba(90,62,40,0.04)"/>
+    <text x="385" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-weight="500" font-size="10" fill="rgba(45,74,53,0.8)"><tspan x="385" y="34">2nd Great</tspan><tspan x="385" y="46">Grandmother</tspan></text>
+    <rect x="424" y="20" width="62" height="34" rx="2" stroke="#5a3e28" stroke-width="1" fill="rgba(90,62,40,0.04)"/>
+    <text x="455" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-weight="500" font-size="10" fill="rgba(45,74,53,0.8)"><tspan x="455" y="34">2nd Great</tspan><tspan x="455" y="46">Grandfather</tspan></text>
+    <rect x="494" y="20" width="62" height="34" rx="2" stroke="#5a3e28" stroke-width="1" fill="rgba(90,62,40,0.04)"/>
+    <text x="525" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-weight="500" font-size="10" fill="rgba(45,74,53,0.8)"><tspan x="525" y="34">2nd Great</tspan><tspan x="525" y="46">Grandmother</tspan></text>
+  </g>
+
+  <!-- ═══ CONNECTORS — Gen V to Gen IV ═══ -->
+  <g stroke="rgba(90,62,40,0.35)" stroke-width="1">
+    <line x1="35" y1="54" x2="35" y2="72"/><line x1="105" y1="54" x2="105" y2="72"/><line x1="35" y1="72" x2="105" y2="72"/><line x1="70" y1="72" x2="70" y2="90"/>
+    <line x1="175" y1="54" x2="175" y2="72"/><line x1="245" y1="54" x2="245" y2="72"/><line x1="175" y1="72" x2="245" y2="72"/><line x1="210" y1="72" x2="210" y2="90"/>
+    <line x1="315" y1="54" x2="315" y2="72"/><line x1="385" y1="54" x2="385" y2="72"/><line x1="315" y1="72" x2="385" y2="72"/><line x1="350" y1="72" x2="350" y2="90"/>
+    <line x1="455" y1="54" x2="455" y2="72"/><line x1="525" y1="54" x2="525" y2="72"/><line x1="455" y1="72" x2="525" y2="72"/><line x1="490" y1="72" x2="490" y2="90"/>
+  </g>
 
   <!-- ═══ GENERATION IV — GREAT-GRANDPARENTS ═══ -->
   <g opacity="0.45">
-    <!-- GGP 1 -->
-    <rect x="8" y="56" width="98" height="26" rx="2" stroke="#5a3e28" stroke-width="1" fill="rgba(90,62,40,0.05)"/>
-    <text x="57" y="73" text-anchor="middle" font-family="'Pinyon Script',cursive" font-size="13" fill="rgba(45,74,53,0.8)">Gt. Grandfather</text>
-
-    <!-- GGP 2 -->
-    <rect x="128" y="56" width="98" height="26" rx="2" stroke="#5a3e28" stroke-width="1" fill="rgba(90,62,40,0.05)"/>
-    <text x="177" y="73" text-anchor="middle" font-family="'Pinyon Script',cursive" font-size="13" fill="rgba(45,74,53,0.8)">Gt. Grandmother</text>
-
-    <!-- GGP 3 -->
-    <rect x="254" y="56" width="98" height="26" rx="2" stroke="#5a3e28" stroke-width="1" fill="rgba(90,62,40,0.05)"/>
-    <text x="303" y="73" text-anchor="middle" font-family="'Pinyon Script',cursive" font-size="13" fill="rgba(45,74,53,0.8)">Gt. Grandfather</text>
-
-    <!-- GGP 4 -->
-    <rect x="374" y="56" width="98" height="26" rx="2" stroke="#5a3e28" stroke-width="1" fill="rgba(90,62,40,0.05)"/>
-    <text x="423" y="73" text-anchor="middle" font-family="'Pinyon Script',cursive" font-size="13" fill="rgba(45,74,53,0.8)">Gt. Grandmother</text>
+    <rect x="14" y="90" width="112" height="26" rx="2" stroke="#5a3e28" stroke-width="1" fill="rgba(90,62,40,0.05)"/>
+    <text x="70" y="107" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-weight="500" font-size="12" fill="rgba(45,74,53,0.8)">Gt. Grandfather</text>
+    <rect x="154" y="90" width="112" height="26" rx="2" stroke="#5a3e28" stroke-width="1" fill="rgba(90,62,40,0.05)"/>
+    <text x="210" y="107" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-weight="500" font-size="12" fill="rgba(45,74,53,0.8)">Gt. Grandmother</text>
+    <rect x="294" y="90" width="112" height="26" rx="2" stroke="#5a3e28" stroke-width="1" fill="rgba(90,62,40,0.05)"/>
+    <text x="350" y="107" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-weight="500" font-size="12" fill="rgba(45,74,53,0.8)">Gt. Grandfather</text>
+    <rect x="434" y="90" width="112" height="26" rx="2" stroke="#5a3e28" stroke-width="1" fill="rgba(90,62,40,0.05)"/>
+    <text x="490" y="107" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-weight="500" font-size="12" fill="rgba(45,74,53,0.8)">Gt. Grandmother</text>
   </g>
 
   <!-- ═══ CONNECTORS — Gen IV to Gen III ═══ -->
   <g stroke="rgba(90,62,40,0.4)" stroke-width="1">
-    <line x1="57"  y1="82" x2="57"  y2="106"/>
-    <line x1="177" y1="82" x2="177" y2="106"/>
-    <line x1="57"  y1="106" x2="177" y2="106"/>
-    <line x1="117" y1="106" x2="117" y2="120"/>
-
-    <line x1="303" y1="82" x2="303" y2="106"/>
-    <line x1="423" y1="82" x2="423" y2="106"/>
-    <line x1="303" y1="106" x2="423" y2="106"/>
-    <line x1="363" y1="106" x2="363" y2="120"/>
+    <line x1="70" y1="116" x2="70" y2="136"/><line x1="210" y1="116" x2="210" y2="136"/><line x1="70" y1="136" x2="210" y2="136"/><line x1="140" y1="136" x2="140" y2="152"/>
+    <line x1="350" y1="116" x2="350" y2="136"/><line x1="490" y1="116" x2="490" y2="136"/><line x1="350" y1="136" x2="490" y2="136"/><line x1="420" y1="136" x2="420" y2="152"/>
   </g>
 
   <!-- ═══ GENERATION III — GRANDPARENTS ═══ -->
   <g opacity="0.72">
-    <rect x="26" y="120" width="182" height="34" rx="2.5" stroke="#5a3e28" stroke-width="1.3" fill="rgba(90,62,40,0.07)"/>
-    <rect x="30" y="124" width="174" height="26" rx="2" stroke="rgba(90,62,40,0.2)" stroke-width="0.6" fill="none"/>
-    <text x="117" y="141" text-anchor="middle" font-family="'Pinyon Script',cursive" font-size="18" fill="rgba(45,74,53,0.9)">Paternal Grandfather</text>
-
-    <rect x="272" y="120" width="182" height="34" rx="2.5" stroke="#5a3e28" stroke-width="1.3" fill="rgba(90,62,40,0.07)"/>
-    <rect x="276" y="124" width="174" height="26" rx="2" stroke="rgba(90,62,40,0.2)" stroke-width="0.6" fill="none"/>
-    <text x="363" y="141" text-anchor="middle" font-family="'Pinyon Script',cursive" font-size="18" fill="rgba(45,74,53,0.9)">Maternal Grandmother</text>
+    <rect x="40" y="152" width="200" height="34" rx="2.5" stroke="#5a3e28" stroke-width="1.3" fill="rgba(90,62,40,0.07)"/>
+    <rect x="44" y="156" width="192" height="26" rx="2" stroke="rgba(90,62,40,0.2)" stroke-width="0.6" fill="none"/>
+    <text x="140" y="174" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-weight="500" font-size="16" fill="rgba(45,74,53,0.9)">Paternal Grandfather</text>
+    <rect x="320" y="152" width="200" height="34" rx="2.5" stroke="#5a3e28" stroke-width="1.3" fill="rgba(90,62,40,0.07)"/>
+    <rect x="324" y="156" width="192" height="26" rx="2" stroke="rgba(90,62,40,0.2)" stroke-width="0.6" fill="none"/>
+    <text x="420" y="174" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-weight="500" font-size="16" fill="rgba(45,74,53,0.9)">Maternal Grandmother</text>
   </g>
 
   <!-- ═══ CONNECTORS — Gen III to Gen II ═══ -->
   <g stroke="rgba(90,62,40,0.45)" stroke-width="1.2">
-    <line x1="117" y1="154" x2="117" y2="220"/>
-    <line x1="363" y1="154" x2="363" y2="220"/>
-    <line x1="117" y1="220" x2="363" y2="220"/>
-    <line x1="240" y1="220" x2="240" y2="244"/>
+    <line x1="140" y1="186" x2="140" y2="250"/>
+    <line x1="420" y1="186" x2="420" y2="250"/>
   </g>
 
   <!-- ═══ GENERATION II — PARENTS ═══ -->
   <g opacity="0.85">
-    <!-- Father -->
-    <rect x="26" y="244" width="200" height="38" rx="2.5" stroke="#5a3e28" stroke-width="1.5" fill="rgba(90,62,40,0.08)"/>
-    <rect x="30" y="248" width="192" height="30" rx="2" stroke="rgba(90,62,40,0.2)" stroke-width="0.7" fill="none"/>
-    <text x="126" y="268" text-anchor="middle" font-family="'Pinyon Script',cursive" font-size="22" fill="rgba(45,74,53,0.95)">Father</text>
-
-    <!-- Mother -->
-    <rect x="254" y="244" width="200" height="38" rx="2.5" stroke="#5a3e28" stroke-width="1.5" fill="rgba(90,62,40,0.08)"/>
-    <rect x="258" y="248" width="192" height="30" rx="2" stroke="rgba(90,62,40,0.2)" stroke-width="0.7" fill="none"/>
-    <text x="354" y="268" text-anchor="middle" font-family="'Pinyon Script',cursive" font-size="22" fill="rgba(45,74,53,0.95)">Mother</text>
+    <rect x="40" y="250" width="200" height="38" rx="2.5" stroke="#5a3e28" stroke-width="1.5" fill="rgba(90,62,40,0.08)"/>
+    <rect x="44" y="254" width="192" height="30" rx="2" stroke="rgba(90,62,40,0.2)" stroke-width="0.7" fill="none"/>
+    <text x="140" y="275" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-weight="500" font-size="20" fill="rgba(45,74,53,0.95)">Father</text>
+    <rect x="320" y="250" width="200" height="38" rx="2.5" stroke="#5a3e28" stroke-width="1.5" fill="rgba(90,62,40,0.08)"/>
+    <rect x="324" y="254" width="192" height="30" rx="2" stroke="rgba(90,62,40,0.2)" stroke-width="0.7" fill="none"/>
+    <text x="420" y="275" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-weight="500" font-size="20" fill="rgba(45,74,53,0.95)">Mother</text>
   </g>
 
   <!-- ═══ CONNECTORS — Gen II to Gen I ═══ -->
   <g stroke="rgba(90,62,40,0.55)" stroke-width="1.5">
-    <line x1="126" y1="282" x2="126" y2="340"/>
-    <line x1="354" y1="282" x2="354" y2="340"/>
-    <line x1="126" y1="340" x2="354" y2="340"/>
-    <line x1="240" y1="340" x2="240" y2="364"/>
+    <line x1="140" y1="288" x2="140" y2="340"/>
+    <line x1="420" y1="288" x2="420" y2="340"/>
+    <line x1="140" y1="340" x2="420" y2="340"/>
+    <line x1="280" y1="340" x2="280" y2="364"/>
   </g>
 
-  <!-- ═══ GENERATION I — SUBJECT ═══ -->
-  <rect x="108" y="364" width="264" height="52" rx="3" stroke="rgba(90,62,40,0.2)" stroke-width="3" fill="rgba(90,62,40,0.04)"/>
-  <rect x="113" y="369" width="254" height="42" rx="2.5" stroke="#5a3e28" stroke-width="1.2" fill="rgba(90,62,40,0.08)"/>
-  <rect x="118" y="374" width="244" height="32" rx="2" stroke="rgba(90,62,40,0.25)" stroke-width="0.7" fill="none"/>
-  <text x="240" y="395" text-anchor="middle" font-family="'Pinyon Script',cursive" font-size="28" fill="rgba(45,74,53,1)">Subject</text>
-
-  <!-- ═══ CORNER FLOURISHES ═══ -->
-  <g stroke="rgba(90,62,40,0.3)" stroke-width="1" fill="none">
-    <path d="M12 12 L44 12 L44 44"/>
-    <path d="M468 12 L436 12 L436 44"/>
-    <path d="M12 508 L44 508 L44 476"/>
-    <path d="M468 508 L436 508 L436 476"/>
-  </g>
-
-  <!-- Bottom rule -->
-  <line x1="60" y1="496" x2="420" y2="496" stroke="rgba(90,62,40,0.2)" stroke-width="0.6"/>
-  <text x="240" y="510" text-anchor="middle" font-family="'Pinyon Script',cursive" font-size="13" fill="rgba(90,62,40,0.4)">four generations</text>
-
+  <!-- ═══ GENERATION I — YOU ═══ -->
+  <rect x="148" y="364" width="264" height="52" rx="3" stroke="rgba(90,62,40,0.2)" stroke-width="3" fill="rgba(90,62,40,0.04)"/>
+  <rect x="153" y="369" width="254" height="42" rx="2.5" stroke="#5a3e28" stroke-width="1.2" fill="rgba(90,62,40,0.08)"/>
+  <rect x="158" y="374" width="244" height="32" rx="2" stroke="rgba(90,62,40,0.25)" stroke-width="0.7" fill="none"/>
+  <text x="280" y="398" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-weight="500" font-size="26" fill="rgba(45,74,53,1)">You</text>
 </svg>
         </div>
 
@@ -1263,7 +1281,6 @@
   <div class="bio-header">
     <div class="bio-header-text">
       <div class="bio-name">Taylor Fitzhugh Turner IV</div>
-      <div class="bio-credential">History, B.A. — Thomas Edison State College</div>
     </div>
   </div>
   <div class="bio-body">
@@ -1302,7 +1319,6 @@
   <div class="services-header reveal">
     <div class="section-label">What We Offer</div>
     <h2>Our Research Services</h2>
-    <p>Tailored genealogical research to match the scope and depth of your family's unique history</p>
   </div>
 
   <div class="services-grid stagger">
