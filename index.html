@@ -524,6 +524,18 @@
     margin: 0;
   }
 
+  .bio-memberships .pending-note {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.7rem;
+    font-style: italic;
+    letter-spacing: 0.02em;
+    opacity: 0.6;
+  }
+  .bio-memberships .is-pending img {
+    opacity: 0.75;
+  }
+
   .bio-memberships li {
     display: flex;
     flex-direction: column;
@@ -1275,8 +1287,9 @@
         <li><a href="https://www.magnacharta.com/" target="_blank" rel="noopener"><img src="images/societies/magna-charta.webp" alt="Order of Magna Carta insignia" loading="lazy" width="72" height="72"><span>Order of Magna Carta</span></a></li>
         <li><a href="https://www.washingtonfamilydescendants.org/" target="_blank" rel="noopener"><img src="images/societies/washington.webp" alt="Washington Family Descendants insignia" loading="lazy" width="72" height="72"><span>Washington Family Descendants</span></a></li>
         <li><a href="https://www.huguenotmanakin.org/" target="_blank" rel="noopener"><img src="images/societies/huguenot-manakin.webp" alt="Huguenot Society of the Founders of Manakin in the Colony of Virginia insignia" loading="lazy" width="72" height="72"><span>Huguenot Society of the Founders of Manakin in the Colony of Virginia</span></a></li>
-        <li><a href="https://gswar1812.org/" target="_blank" rel="noopener"><img src="images/societies/war-of-1812.webp" alt="Society of the War of 1812 insignia" loading="lazy" width="72" height="72"><span>Society of the War of 1812</span></a></li>
-        <li><a href="https://themayflowersociety.org/" target="_blank" rel="noopener"><img src="images/societies/mayflower.webp" alt="Society of Mayflower Descendants insignia" loading="lazy" width="72" height="72"><span>Society of Mayflower Descendants</span></a></li>
+        <li class="is-pending"><a href="https://gswar1812.org/" target="_blank" rel="noopener"><img src="images/societies/war-of-1812.webp" alt="Society of the War of 1812 insignia" loading="lazy" width="72" height="72"><span>Society of the War of 1812</span><small class="pending-note">Pending Application Approval</small></a></li>
+        <li class="is-pending"><a href="https://themayflowersociety.org/" target="_blank" rel="noopener"><img src="images/societies/mayflower.webp" alt="Society of Mayflower Descendants insignia" loading="lazy" width="72" height="72"><span>Society of Mayflower Descendants</span><small class="pending-note">Pending Application Approval</small></a></li>
+        <li class="is-pending"><a href="https://www.aztecclub.com/" target="_blank" rel="noopener"><img src="images/societies/aztec-club.webp" alt="Aztec Club of 1847 insignia" loading="lazy" width="72" height="72"><span>Aztec Club of 1847</span><small class="pending-note">Pending Application Approval</small></a></li>
       </ul>
     </div>
   </div>
