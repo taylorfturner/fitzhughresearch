@@ -815,14 +815,50 @@
     color: var(--gold-light) !important;
   }
 
-  .testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    max-width: 1100px;
-    margin: 56px auto 0;
+  /* Carousel viewport: full-bleed, clips the strip, fades the edges */
+  .testimonial-marquee {
     position: relative;
     z-index: 2;
+    overflow: hidden;
+    margin: 56px -80px 0;
+    padding: 4px 0 8px;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
+  }
+
+  .testimonial-track {
+    display: flex;
+    align-items: stretch;
+    width: max-content;
+    --marquee-duration: 90s; /* higher = slower */
+  }
+
+  .testimonial-marquee.is-ready .testimonial-track {
+    animation: testimonial-ltr var(--marquee-duration) linear infinite;
+  }
+
+  .testimonial-track .testimonial-card {
+    flex: 0 0 auto;
+    width: clamp(280px, 80vw, 360px);
+    margin-right: 24px; /* margin, not gap, so the loop is seamless */
+  }
+
+  /* Left to right: start one full set to the left, slide back to 0 */
+  @keyframes testimonial-ltr {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .testimonial-marquee {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-mask-image: none;
+              mask-image: none;
+    }
+    .testimonial-marquee.is-ready .testimonial-track { animation: none; }
+    .testimonial-track .testimonial-card { scroll-snap-align: start; }
+    .testimonial-track .testimonial-card[aria-hidden="true"] { display: none; }
   }
 
   .testimonial-card {
@@ -861,6 +897,31 @@
   .testimonial-footer {
     border-top: 1px solid rgba(176,141,74,0.2);
     padding-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .testimonial-meta { min-width: 0; }
+
+  .testimonial-logos {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .society-logo {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .testimonial-logos:has(.society-logo:nth-child(3)) .society-logo {
+    width: 42px;
+    height: 42px;
   }
 
   .testimonial-author {
@@ -878,15 +939,6 @@
     letter-spacing: 0.04em;
   }
 
-  .testimonial-society {
-    font-family: 'IM Fell English', serif;
-    font-style: italic;
-    font-size: 12px;
-    color: var(--gold);
-    opacity: 0.75;
-    margin-top: 8px;
-    letter-spacing: 0.02em;
-  }
 
   /* ─── CTA ────────────────────────────────────── */
   .cta-section {
@@ -1044,10 +1096,7 @@
 
     /* Testimonials */
     .testimonial-section { padding: 70px 24px; }
-    .testimonial-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
+    .testimonial-marquee { margin-left: -24px; margin-right: -24px; }
 
     /* CTA */
     .cta-section { padding: 80px 24px; }
@@ -1083,7 +1132,6 @@
     .process-steps { grid-template-columns: 1fr; gap: 36px; }
 
     /* Testimonials: single column */
-    .testimonial-grid { grid-template-columns: 1fr; gap: 12px; }
     .testimonial-card { padding: 24px 20px 20px; }
 
     /* General */
@@ -1108,8 +1156,7 @@
     font-style: normal !important;
   }
   .testimonial-author,
-  .testimonial-location,
-  .testimonial-society {
+  .testimonial-location {
     color: #fff !important;
     opacity: 1 !important;
   }
@@ -1397,17 +1444,22 @@
     </h2>
   </div>
 
-  <div class="testimonial-grid stagger">
+  <div class="testimonial-marquee" aria-label="Client testimonials">
+    <div class="testimonial-track">
     <div class="testimonial-card">
       <div class="testimonial-stars">★★★★★</div>
       <p class="testimonial-text">
         Taylor is a master at rooting out family history and genealogy. He found direct ancestors in my and my husband's lines that heretofore we did not know existed. Knowing this information has given us a connection to our family history that we didn't have before. He leaves no stone unturned and is a pleasure to work with.
       </p>
       <div class="testimonial-footer">
+          <div class="testimonial-meta">
         <div class="testimonial-author">Tessa S.</div>
         <div class="testimonial-location">Keswick, Virginia</div>
-        <div class="testimonial-society">Society of Colonial Dames</div>
-      </div>
+          </div>
+          <div class="testimonial-logos">
+            <img class="society-logo" src="images/societies/colonial-dames.webp" alt="Society of Colonial Dames insignia" title="Society of Colonial Dames" loading="lazy" width="52" height="52">
+          </div>
+        </div>
     </div>
     <div class="testimonial-card">
       <div class="testimonial-stars">★★★★★</div>
@@ -1415,10 +1467,14 @@
         Taylor is a talented historian and meticulous researcher. I am very impressed by how deep he was able to go in both my and my wife’s ancestry. We love reading all the documents Taylor provided on our ancestors. It has given us a solid connection to our past we would have never had without Taylor’s findings.
       </p>
       <div class="testimonial-footer">
+          <div class="testimonial-meta">
         <div class="testimonial-author">Neal S.</div>
         <div class="testimonial-location">Keswick, Virginia</div>
-        <div class="testimonial-society">Sons of the Revolution</div>
-      </div>
+          </div>
+          <div class="testimonial-logos">
+            <img class="society-logo" src="images/societies/sons-of-the-revolution.webp" alt="Sons of the Revolution insignia" title="Sons of the Revolution" loading="lazy" width="52" height="52">
+          </div>
+        </div>
     </div>
     <div class="testimonial-card">
       <div class="testimonial-stars">★★★★★</div>
@@ -1427,10 +1483,14 @@
         I am truly indebted to Taylor Turner for his guidance, his knowledge, his expertise and kind perseverance throughout the process. His skill in detangling and weaving my own personal heritage into the Great American Tapestry is indeed a monumental gift.
       </p>
       <div class="testimonial-footer">
+          <div class="testimonial-meta">
         <div class="testimonial-author">Dan B.</div>
         <div class="testimonial-location">Richmond, Virginia</div>
-        <div class="testimonial-society">Sons of the Revolution</div>
-      </div>
+          </div>
+          <div class="testimonial-logos">
+            <img class="society-logo" src="images/societies/sons-of-the-revolution.webp" alt="Sons of the Revolution insignia" title="Sons of the Revolution" loading="lazy" width="52" height="52">
+          </div>
+        </div>
     </div>
     <div class="testimonial-card">
       <div class="testimonial-stars">★★★★★</div>
@@ -1438,10 +1498,14 @@
         Taylor helped me put all the pieces together for my application to the Sons under John Rucker, Ensign. His expertise, attention to detail, and eagerness to put the puzzle together is so appreciated.
       </p>
       <div class="testimonial-footer">
+          <div class="testimonial-meta">
         <div class="testimonial-author">Nathan S.</div>
         <div class="testimonial-location">Richmond, Virginia</div>
-        <div class="testimonial-society">Sons of the Revolution</div>
-      </div>
+          </div>
+          <div class="testimonial-logos">
+            <img class="society-logo" src="images/societies/sons-of-the-revolution.webp" alt="Sons of the Revolution insignia" title="Sons of the Revolution" loading="lazy" width="52" height="52">
+          </div>
+        </div>
     </div>
     <div class="testimonial-card">
       <div class="testimonial-stars">★★★★★</div>
@@ -1449,12 +1513,16 @@
         Taylor guided our family through the research and documentation required for both the Jamestowne Society and Society of Colonial Wars applications — work that demands tracing lines over 300 years of Virginia records. Grandad would be so proud!
       </p>
       <div class="testimonial-footer">
+          <div class="testimonial-meta">
         <div class="testimonial-author">Mr. Turner</div>
         <div class="testimonial-location">Richmond, Virginia</div>
-        <div class="testimonial-society">Order of Founders and Patriots of America</div>
-        <div class="testimonial-society">Jamestowne Society</div>
-        <div class="testimonial-society">Society of Colonial Wars</div>
-      </div>
+          </div>
+          <div class="testimonial-logos">
+            <img class="society-logo" src="images/societies/ofpa.webp" alt="Order of Founders and Patriots of America insignia" title="Order of Founders and Patriots of America" loading="lazy" width="52" height="52">
+            <img class="society-logo" src="images/societies/jamestowne.webp" alt="Jamestowne Society insignia" title="Jamestowne Society" loading="lazy" width="52" height="52">
+            <img class="society-logo" src="images/societies/colonial-wars.webp" alt="Society of Colonial Wars insignia" title="Society of Colonial Wars" loading="lazy" width="52" height="52">
+          </div>
+        </div>
     </div>
     <div class="testimonial-card">
       <div class="testimonial-stars">★★★★★</div>
@@ -1462,10 +1530,14 @@
         Taylor was extremely helpful throughout my Sons of the Revolution application process, bringing both diligence and judgment to a complex historical research project. His work helped uncover meaningful family history, clarify lineage questions, and assemble the supporting materials in a way that was thorough, organized, and easy to follow. I would strongly recommend him to anyone pursuing genealogical or historical research.
       </p>
       <div class="testimonial-footer">
+          <div class="testimonial-meta">
         <div class="testimonial-author">Christian S.</div>
         <div class="testimonial-location">Virginia</div>
-        <div class="testimonial-society">Sons of the Revolution</div>
-      </div>
+          </div>
+          <div class="testimonial-logos">
+            <img class="society-logo" src="images/societies/sons-of-the-revolution.webp" alt="Sons of the Revolution insignia" title="Sons of the Revolution" loading="lazy" width="52" height="52">
+          </div>
+        </div>
     </div>
     <div class="testimonial-card">
       <div class="testimonial-stars">★★★★★</div>
@@ -1473,11 +1545,15 @@
         Taylor assisted me in the research of the Jefferson family line in preparation for my application to the Society of Colonial Wars. His work is thorough and efficient. His enthusiasm for genealogy is infectious. Taylor was a delight to work with on this project and I am grateful for his efforts.
       </p>
       <div class="testimonial-footer">
+          <div class="testimonial-meta">
         <div class="testimonial-author">Rodney J.</div>
         <div class="testimonial-location">Richmond, Virginia</div>
-        <div class="testimonial-society">Society of Colonial Wars</div>
-        <div class="testimonial-society">Jamestowne Society</div>
-      </div>
+          </div>
+          <div class="testimonial-logos">
+            <img class="society-logo" src="images/societies/colonial-wars.webp" alt="Society of Colonial Wars insignia" title="Society of Colonial Wars" loading="lazy" width="52" height="52">
+            <img class="society-logo" src="images/societies/jamestowne.webp" alt="Jamestowne Society insignia" title="Jamestowne Society" loading="lazy" width="52" height="52">
+          </div>
+        </div>
     </div>
     <div class="testimonial-card">
       <div class="testimonial-stars">★★★★★</div>
@@ -1485,11 +1561,16 @@
         This is very impressive. Thanks for all of your work!
       </p>
       <div class="testimonial-footer">
+          <div class="testimonial-meta">
         <div class="testimonial-author">Bill H.</div>
         <div class="testimonial-location">Virginia</div>
-        <div class="testimonial-society">Society of Colonial Wars</div>
-        <div class="testimonial-society">Jamestowne Society</div>
-      </div>
+          </div>
+          <div class="testimonial-logos">
+            <img class="society-logo" src="images/societies/colonial-wars.webp" alt="Society of Colonial Wars insignia" title="Society of Colonial Wars" loading="lazy" width="52" height="52">
+            <img class="society-logo" src="images/societies/jamestowne.webp" alt="Jamestowne Society insignia" title="Jamestowne Society" loading="lazy" width="52" height="52">
+          </div>
+        </div>
+    </div>
     </div>
   </div>
 </section>
@@ -1509,6 +1590,18 @@
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
+
+  // Testimonial carousel: duplicate the cards once so the loop is seamless.
+  // Clones are hidden from screen readers so each testimonial is read once.
+  document.querySelectorAll('.testimonial-marquee').forEach(marquee => {
+    const track = marquee.querySelector('.testimonial-track');
+    [...track.children].forEach(card => {
+      const clone = card.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    });
+    marquee.classList.add('is-ready');
+  });
 
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
