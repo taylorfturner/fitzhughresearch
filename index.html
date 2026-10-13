@@ -815,50 +815,34 @@
     color: var(--gold-light) !important;
   }
 
-  /* Carousel viewport: full-bleed, clips the strip, fades the edges */
+  /* Carousel viewport: full-bleed, scrollable by hand, fades the edges.
+     The script below advances it right to left and resumes after manual scrolling. */
   .testimonial-marquee {
     position: relative;
     z-index: 2;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
     margin: 56px -80px 0;
     padding: 4px 0 8px;
+    cursor: grab;
     -webkit-mask-image: linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
             mask-image: linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
   }
+  .testimonial-marquee::-webkit-scrollbar { display: none; }
+  .testimonial-marquee.is-dragging { cursor: grabbing; user-select: none; }
 
   .testimonial-track {
     display: flex;
     align-items: stretch;
     width: max-content;
-    --marquee-duration: 90s; /* higher = slower */
-  }
-
-  .testimonial-marquee.is-ready .testimonial-track {
-    animation: testimonial-ltr var(--marquee-duration) linear infinite;
   }
 
   .testimonial-track .testimonial-card {
     flex: 0 0 auto;
     width: clamp(280px, 80vw, 360px);
     margin-right: 24px; /* margin, not gap, so the loop is seamless */
-  }
-
-  /* Left to right: start one full set to the left, slide back to 0 */
-  @keyframes testimonial-ltr {
-    from { transform: translateX(-50%); }
-    to   { transform: translateX(0); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .testimonial-marquee {
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-mask-image: none;
-              mask-image: none;
-    }
-    .testimonial-marquee.is-ready .testimonial-track { animation: none; }
-    .testimonial-track .testimonial-card { scroll-snap-align: start; }
-    .testimonial-track .testimonial-card[aria-hidden="true"] { display: none; }
   }
 
   .testimonial-card {
@@ -897,6 +881,7 @@
   .testimonial-footer {
     border-top: 1px solid rgba(176,141,74,0.2);
     padding-top: 16px;
+    min-height: 69px; /* keeps footers aligned when a tile has no logo */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1457,7 +1442,7 @@
         <div class="testimonial-location">Keswick, Virginia</div>
           </div>
           <div class="testimonial-logos">
-            <img class="society-logo" src="images/societies/colonial-dames.webp" alt="Society of Colonial Dames insignia" title="Society of Colonial Dames" loading="lazy" width="52" height="52">
+            <img class="society-logo" src="images/societies/colonial-dames.webp" alt="Society of Colonial Dames insignia" title="Society of Colonial Dames" width="52" height="52">
           </div>
         </div>
     </div>
@@ -1472,7 +1457,7 @@
         <div class="testimonial-location">Keswick, Virginia</div>
           </div>
           <div class="testimonial-logos">
-            <img class="society-logo" src="images/societies/sons-of-the-revolution.webp" alt="Sons of the Revolution insignia" title="Sons of the Revolution" loading="lazy" width="52" height="52">
+            <img class="society-logo" src="images/societies/sons-of-the-revolution.webp" alt="Sons of the Revolution insignia" title="Sons of the Revolution" width="52" height="52">
           </div>
         </div>
     </div>
@@ -1488,7 +1473,7 @@
         <div class="testimonial-location">Richmond, Virginia</div>
           </div>
           <div class="testimonial-logos">
-            <img class="society-logo" src="images/societies/sons-of-the-revolution.webp" alt="Sons of the Revolution insignia" title="Sons of the Revolution" loading="lazy" width="52" height="52">
+            <img class="society-logo" src="images/societies/sons-of-the-revolution.webp" alt="Sons of the Revolution insignia" title="Sons of the Revolution" width="52" height="52">
           </div>
         </div>
     </div>
@@ -1503,7 +1488,7 @@
         <div class="testimonial-location">Richmond, Virginia</div>
           </div>
           <div class="testimonial-logos">
-            <img class="society-logo" src="images/societies/sons-of-the-revolution.webp" alt="Sons of the Revolution insignia" title="Sons of the Revolution" loading="lazy" width="52" height="52">
+            <img class="society-logo" src="images/societies/sons-of-the-revolution.webp" alt="Sons of the Revolution insignia" title="Sons of the Revolution" width="52" height="52">
           </div>
         </div>
     </div>
@@ -1518,9 +1503,9 @@
         <div class="testimonial-location">Richmond, Virginia</div>
           </div>
           <div class="testimonial-logos">
-            <img class="society-logo" src="images/societies/ofpa.webp" alt="Order of Founders and Patriots of America insignia" title="Order of Founders and Patriots of America" loading="lazy" width="52" height="52">
-            <img class="society-logo" src="images/societies/jamestowne.webp" alt="Jamestowne Society insignia" title="Jamestowne Society" loading="lazy" width="52" height="52">
-            <img class="society-logo" src="images/societies/colonial-wars.webp" alt="Society of Colonial Wars insignia" title="Society of Colonial Wars" loading="lazy" width="52" height="52">
+            <img class="society-logo" src="images/societies/ofpa.webp" alt="Order of Founders and Patriots of America insignia" title="Order of Founders and Patriots of America" width="52" height="52">
+            <img class="society-logo" src="images/societies/jamestowne.webp" alt="Jamestowne Society insignia" title="Jamestowne Society" width="52" height="52">
+            <img class="society-logo" src="images/societies/colonial-wars.webp" alt="Society of Colonial Wars insignia" title="Society of Colonial Wars" width="52" height="52">
           </div>
         </div>
     </div>
@@ -1535,7 +1520,7 @@
         <div class="testimonial-location">Virginia</div>
           </div>
           <div class="testimonial-logos">
-            <img class="society-logo" src="images/societies/sons-of-the-revolution.webp" alt="Sons of the Revolution insignia" title="Sons of the Revolution" loading="lazy" width="52" height="52">
+            <img class="society-logo" src="images/societies/sons-of-the-revolution.webp" alt="Sons of the Revolution insignia" title="Sons of the Revolution" width="52" height="52">
           </div>
         </div>
     </div>
@@ -1550,8 +1535,8 @@
         <div class="testimonial-location">Richmond, Virginia</div>
           </div>
           <div class="testimonial-logos">
-            <img class="society-logo" src="images/societies/colonial-wars.webp" alt="Society of Colonial Wars insignia" title="Society of Colonial Wars" loading="lazy" width="52" height="52">
-            <img class="society-logo" src="images/societies/jamestowne.webp" alt="Jamestowne Society insignia" title="Jamestowne Society" loading="lazy" width="52" height="52">
+            <img class="society-logo" src="images/societies/colonial-wars.webp" alt="Society of Colonial Wars insignia" title="Society of Colonial Wars" width="52" height="52">
+            <img class="society-logo" src="images/societies/jamestowne.webp" alt="Jamestowne Society insignia" title="Jamestowne Society" width="52" height="52">
           </div>
         </div>
     </div>
@@ -1566,8 +1551,8 @@
         <div class="testimonial-location">Virginia</div>
           </div>
           <div class="testimonial-logos">
-            <img class="society-logo" src="images/societies/colonial-wars.webp" alt="Society of Colonial Wars insignia" title="Society of Colonial Wars" loading="lazy" width="52" height="52">
-            <img class="society-logo" src="images/societies/jamestowne.webp" alt="Jamestowne Society insignia" title="Jamestowne Society" loading="lazy" width="52" height="52">
+            <img class="society-logo" src="images/societies/colonial-wars.webp" alt="Society of Colonial Wars insignia" title="Society of Colonial Wars" width="52" height="52">
+            <img class="society-logo" src="images/societies/jamestowne.webp" alt="Jamestowne Society insignia" title="Jamestowne Society" width="52" height="52">
           </div>
         </div>
     </div>
@@ -1591,16 +1576,111 @@
 
   document.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
 
-  // Testimonial carousel: duplicate the cards once so the loop is seamless.
-  // Clones are hidden from screen readers so each testimonial is read once.
+  // Testimonial carousel: cycles right to left on its own. Visitors can
+  // scroll, swipe or drag it; it picks up cycling again once they stop.
   document.querySelectorAll('.testimonial-marquee').forEach(marquee => {
     const track = marquee.querySelector('.testimonial-track');
-    [...track.children].forEach(card => {
-      const clone = card.cloneNode(true);
-      clone.setAttribute('aria-hidden', 'true');
-      track.appendChild(clone);
+    const SECONDS_PER_LOOP = 90;   // higher = slower
+    const RESUME_AFTER_MS = 1500;  // pause after the visitor stops scrolling
+
+    // Three copies of the cards so there is always room to scroll either way.
+    const originals = [...track.children];
+    for (let i = 0; i < 2; i++) {
+      originals.forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+      });
+    }
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let setWidth = track.scrollWidth / 3;
+    let pos = setWidth;            // start on the middle copy
+    let userActive = false;
+    let resumeTimer = null;
+    let last = null;
+
+    // Keep the position inside the middle copy so the loop never runs out.
+    const wrap = () => {
+      if (pos < setWidth) pos += setWidth;
+      else if (pos >= setWidth * 2) pos -= setWidth;
+    };
+    marquee.scrollLeft = pos;
+
+    const pauseForUser = () => {
+      userActive = true;
+      clearTimeout(resumeTimer);
+    };
+    const resumeSoon = () => {
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => { userActive = false; }, RESUME_AFTER_MS);
+    };
+
+    // Trackpad / shift+wheel sideways scrolling
+    marquee.addEventListener('wheel', e => {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || e.shiftKey) {
+        pauseForUser();
+        resumeSoon();
+      }
+    }, { passive: true });
+
+    // Touch swipes
+    marquee.addEventListener('touchstart', pauseForUser, { passive: true });
+    marquee.addEventListener('touchend', resumeSoon, { passive: true });
+    marquee.addEventListener('touchcancel', resumeSoon, { passive: true });
+
+    // Mouse drag
+    let dragStartX = 0, dragStartScroll = 0, dragging = false;
+    marquee.addEventListener('pointerdown', e => {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      dragging = true;
+      dragStartX = e.clientX;
+      dragStartScroll = marquee.scrollLeft;
+      marquee.classList.add('is-dragging');
+      pauseForUser();
     });
-    marquee.classList.add('is-ready');
+    window.addEventListener('pointermove', e => {
+      if (!dragging) return;
+      marquee.scrollLeft = dragStartScroll - (e.clientX - dragStartX);
+    });
+    window.addEventListener('pointerup', () => {
+      if (!dragging) return;
+      dragging = false;
+      marquee.classList.remove('is-dragging');
+      resumeSoon();
+    });
+
+    // While the visitor is scrolling (including momentum), follow along and keep the loop seamless.
+    marquee.addEventListener('scroll', () => {
+      if (!userActive) return;
+      pos = marquee.scrollLeft;
+      const before = pos;
+      wrap();
+      if (pos !== before) {
+        marquee.scrollLeft = pos;
+        if (dragging) dragStartScroll += pos - before;
+      }
+      if (!dragging) resumeSoon();
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+      const ratio = pos / setWidth;
+      setWidth = track.scrollWidth / 3;
+      pos = ratio * setWidth;
+      marquee.scrollLeft = pos;
+    });
+
+    const step = now => {
+      if (last !== null && !userActive && !reduceMotion) {
+        const dt = Math.min(now - last, 100) / 1000;
+        pos += (setWidth / SECONDS_PER_LOOP) * dt;  // positive = cards move right to left
+        wrap();
+        marquee.scrollLeft = pos;
+      }
+      last = now;
+      requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
   });
 
   const hamburger = document.getElementById('hamburger');
