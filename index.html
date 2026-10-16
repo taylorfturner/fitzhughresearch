@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fitzhugh Research</title>
+<title>Fitzhugh Research — Genealogical Services</title>
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -848,6 +848,11 @@
     margin-right: 24px; /* margin, not gap, so the loop is seamless */
   }
 
+  /* Longer testimonials get a wider tile so all tiles keep a similar height */
+  .testimonial-track .testimonial-card.is-wide {
+    width: clamp(280px, 80vw, 600px);
+  }
+
   .testimonial-card {
     padding: 36px 32px 32px;
     background: rgba(245,239,224,0.06);
@@ -1556,6 +1561,23 @@
           <div class="testimonial-logos">
             <img class="society-logo" src="images/societies/colonial-wars.webp" alt="Society of Colonial Wars insignia" title="Society of Colonial Wars" width="52" height="52">
             <img class="society-logo" src="images/societies/jamestowne.webp" alt="Jamestowne Society insignia" title="Jamestowne Society" width="52" height="52">
+          </div>
+        </div>
+    </div>
+    <div class="testimonial-card is-wide">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">
+        Taylor Turner was an excellent resource for the genealogical research needed to complete my application for the Society of Colonial Wars. He worked quickly and was attentive to all my questions. In addition to my SCWVA application, Taylor also helped me with a secondary pursuit for a legitimate family crest, so that I could design an heirloom signet ring. He was able to identify a legitimate ancestral connection with a coat of arms and provided a full history for my records. He also helped with the design of the ring and put me in touch with a quality local jeweler.
+        <br><br>
+        I highly recommend Mr. Turner for any genealogical work, especially for those who endeavor to join ancestral societies that require complex records to certify membership.
+      </p>
+      <div class="testimonial-footer">
+          <div class="testimonial-meta">
+        <div class="testimonial-author">Cameron M.</div>
+        <div class="testimonial-location">Richmond, Virginia</div>
+          </div>
+          <div class="testimonial-logos">
+            <img class="society-logo" src="images/societies/colonial-wars.webp" alt="Society of Colonial Wars insignia" title="Society of Colonial Wars" width="52" height="52">
           </div>
         </div>
     </div>
