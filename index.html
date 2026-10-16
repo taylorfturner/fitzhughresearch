@@ -848,11 +848,6 @@
     margin-right: 24px; /* margin, not gap, so the loop is seamless */
   }
 
-  /* Longer testimonials get a wider tile so all tiles keep a similar height */
-  .testimonial-track .testimonial-card.is-wide {
-    width: clamp(280px, 80vw, 600px);
-  }
-
   .testimonial-card {
     padding: 36px 32px 32px;
     background: rgba(245,239,224,0.06);
@@ -875,6 +870,10 @@
     margin-bottom: 16px;
   }
 
+  /* Pull-quote framing: the key line stays bright; the rest of the quote is muted but kept in full */
+  .testimonial-text:has(.hl) { color: rgba(245,239,224,0.55) !important; }
+  .testimonial-text .hl { color: #fff; font-weight: 500; }
+
   .testimonial-text {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: 17px;
@@ -896,7 +895,7 @@
     gap: 16px;
   }
 
-  .testimonial-meta { min-width: 0; }
+  .testimonial-meta { min-width: 0; white-space: nowrap; }
 
   .testimonial-logos {
     display: flex;
@@ -926,6 +925,7 @@
   }
 
   .testimonial-location {
+    white-space: nowrap;
     font-size: 12px;
     color: rgba(245,239,224,0.4);
     margin-top: 3px;
@@ -1442,7 +1442,7 @@
     <div class="testimonial-card">
       <div class="testimonial-stars">★★★★★</div>
       <p class="testimonial-text">
-        Taylor is a master at rooting out family history and genealogy. He found direct ancestors in my and my husband's lines that heretofore we did not know existed. Knowing this information has given us a connection to our family history that we didn't have before. He leaves no stone unturned and is a pleasure to work with.
+        Taylor is a master at rooting out family history and genealogy. <span class="hl">He found direct ancestors in my and my husband's lines that heretofore we did not know existed.</span> Knowing this information has given us a connection to our family history that we didn't have before. He leaves no stone unturned and is a pleasure to work with.
       </p>
       <div class="testimonial-footer">
           <div class="testimonial-meta">
@@ -1457,7 +1457,7 @@
     <div class="testimonial-card">
       <div class="testimonial-stars">★★★★★</div>
       <p class="testimonial-text">
-        Taylor is a talented historian and meticulous researcher. I am very impressed by how deep he was able to go in both my and my wife’s ancestry. We love reading all the documents Taylor provided on our ancestors. It has given us a solid connection to our past we would have never had without Taylor’s findings.
+        Taylor is a talented historian and meticulous researcher. I am very impressed by how deep he was able to go in both my and my wife’s ancestry. We love reading all the documents Taylor provided on our ancestors. <span class="hl">It has given us a solid connection to our past we would have never had without Taylor’s findings.</span>
       </p>
       <div class="testimonial-footer">
           <div class="testimonial-meta">
@@ -1473,7 +1473,7 @@
       <div class="testimonial-stars">★★★★★</div>
       <p class="testimonial-text">
         Tracing the American story to rightly stand in place as a Son of the Revolution is an honor.
-        I am truly indebted to Taylor Turner for his guidance, his knowledge, his expertise and kind perseverance throughout the process. His skill in detangling and weaving my own personal heritage into the Great American Tapestry is indeed a monumental gift.
+        I am truly indebted to Taylor Turner for his guidance, his knowledge, his expertise and kind perseverance throughout the process. <span class="hl">His skill in detangling and weaving my own personal heritage into the Great American Tapestry is indeed a monumental gift.</span>
       </p>
       <div class="testimonial-footer">
           <div class="testimonial-meta">
@@ -1520,7 +1520,7 @@
     <div class="testimonial-card">
       <div class="testimonial-stars">★★★★★</div>
       <p class="testimonial-text">
-        Taylor was extremely helpful throughout my Sons of the Revolution application process, bringing both diligence and judgment to a complex historical research project. His work helped uncover meaningful family history, clarify lineage questions, and assemble the supporting materials in a way that was thorough, organized, and easy to follow. I would strongly recommend him to anyone pursuing genealogical or historical research.
+        Taylor was extremely helpful throughout my Sons of the Revolution application process, bringing both diligence and judgment to a complex historical research project. <span class="hl">His work helped uncover meaningful family history, clarify lineage questions, and assemble the supporting materials in a way that was thorough, organized, and easy to follow.</span> I would strongly recommend him to anyone pursuing genealogical or historical research.
       </p>
       <div class="testimonial-footer">
           <div class="testimonial-meta">
@@ -1535,7 +1535,7 @@
     <div class="testimonial-card">
       <div class="testimonial-stars">★★★★★</div>
       <p class="testimonial-text">
-        Taylor assisted me in the research of the Jefferson family line in preparation for my application to the Society of Colonial Wars. His work is thorough and efficient. His enthusiasm for genealogy is infectious. Taylor was a delight to work with on this project and I am grateful for his efforts.
+        Taylor assisted me in the research of the Jefferson family line in preparation for my application to the Society of Colonial Wars. His work is thorough and efficient. <span class="hl">His enthusiasm for genealogy is infectious.</span> Taylor was a delight to work with on this project and I am grateful for his efforts.
       </p>
       <div class="testimonial-footer">
           <div class="testimonial-meta">
@@ -1564,10 +1564,10 @@
           </div>
         </div>
     </div>
-    <div class="testimonial-card is-wide">
+    <div class="testimonial-card">
       <div class="testimonial-stars">★★★★★</div>
       <p class="testimonial-text">
-        Taylor Turner was an excellent resource for the genealogical research needed to complete my application for the Society of Colonial Wars. He worked quickly and was attentive to all my questions. In addition to my SCWVA application, Taylor also helped me with a secondary pursuit for a legitimate family crest, so that I could design an heirloom signet ring. He was able to identify a legitimate ancestral connection with a coat of arms and provided a full history for my records. He also helped with the design of the ring and put me in touch with a quality local jeweler.
+        Taylor Turner was an excellent resource for the genealogical research needed to complete my application for the Society of Colonial Wars. He worked quickly and was attentive to all my questions. In addition to my SCWVA application, Taylor also helped me with a secondary pursuit for a legitimate family crest, so that I could design an heirloom signet ring. <span class="hl">He was able to identify a legitimate ancestral connection with a coat of arms and provided a full history for my records.</span> He also helped with the design of the ring and put me in touch with a quality local jeweler.
         <br><br>
         I highly recommend Mr. Turner for any genealogical work, especially for those who endeavor to join ancestral societies that require complex records to certify membership.
       </p>
@@ -1609,6 +1609,55 @@
     const RESUME_AFTER_MS = 1500;  // pause after the visitor stops scrolling
 
     // Three copies of the cards so there is always room to scroll either way.
+    // Size every tile so its text fills it to the footer: all tiles share one
+    // height, and a tile with more text gets wider instead of taller.
+    const fitTiles = () => {
+      const cards = [...track.children];
+      const vw = marquee.clientWidth || window.innerWidth;
+      const maxW = Math.min(720, vw * 0.88);
+      const minW = Math.min(300, maxW);
+      const baseW = Math.min(360, maxW);
+      track.style.alignItems = 'flex-start';
+      const heightAt = (card, w) => {
+        card.style.width = w + 'px';
+        card.style.height = 'auto';
+        return card.offsetHeight;
+      };
+      const base = cards.map(c => heightAt(c, baseW)).sort((a, b) => a - b);
+      const typical = base[Math.floor(base.length / 2)];
+      const longest = Math.max(...cards.map(c => heightAt(c, maxW)));
+      const H = Math.max(typical, longest);
+      cards.forEach(card => {
+        // Never narrower than the footer needs (name, location and every logo on one row).
+        const meta = card.querySelector('.testimonial-meta');
+        const logos = card.querySelector('.testimonial-logos');
+        const pad = parseFloat(getComputedStyle(card).paddingLeft) + parseFloat(getComputedStyle(card).paddingRight);
+        const footNeed = Math.ceil((meta ? meta.scrollWidth : 0) + (logos ? logos.scrollWidth : 0) + 24 + pad);
+        let lo = Math.min(maxW, Math.max(minW, footNeed)), hi = maxW;
+        if (heightAt(card, lo) <= H) hi = lo;
+        while (hi - lo > 4) {
+          const mid = (lo + hi) / 2;
+          if (heightAt(card, mid) <= H) hi = mid; else lo = mid;
+        }
+        const w = Math.ceil(hi);
+        // A quote too short to fill even the narrowest tile is set larger instead.
+        const text = card.querySelector('.testimonial-text');
+        text.style.fontSize = '';
+        if (heightAt(card, w) < H - 8) {
+          let size = 17;
+          while (size < 30) {
+            text.style.fontSize = (size + 1) + 'px';
+            if (heightAt(card, w) > H) { text.style.fontSize = size + 'px'; break; }
+            size += 1;
+          }
+        }
+        card.style.width = w + 'px';
+        card.style.height = H + 'px';
+      });
+      track.style.alignItems = '';
+    };
+    fitTiles();
+
     const originals = [...track.children];
     for (let i = 0; i < 2; i++) {
       originals.forEach(card => {
@@ -1688,12 +1737,19 @@
       if (!dragging) resumeSoon();
     }, { passive: true });
 
-    window.addEventListener('resize', () => {
+    const refit = () => {
       const ratio = pos / setWidth;
+      fitTiles();
       setWidth = track.scrollWidth / 3;
       pos = ratio * setWidth;
       marquee.scrollLeft = pos;
+    };
+    let resizeTimer = null;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(refit, 150);
     });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(refit);
 
     const step = now => {
       if (last !== null && !userActive && !reduceMotion) {
