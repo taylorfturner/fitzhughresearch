@@ -844,7 +844,8 @@
 
   .testimonial-track .testimonial-card {
     flex: 0 0 auto;
-    width: clamp(280px, 80vw, 360px);
+    width: min(340px, 80vw);
+    min-height: 380px;
     margin-right: 24px; /* margin, not gap, so the loop is seamless */
   }
 
@@ -869,10 +870,6 @@
     opacity: 0.6;
     margin-bottom: 16px;
   }
-
-  /* Pull-quote framing: the key line stays bright; the rest of the quote is muted but kept in full */
-  .testimonial-text:has(.hl) { color: rgba(245,239,224,0.55) !important; }
-  .testimonial-text .hl { color: #fff; font-weight: 500; }
 
   .testimonial-text {
     font-family: 'Cormorant Garamond', Georgia, serif;
@@ -1161,6 +1158,62 @@
     font-size: 16px;
   }
   .fitz-note-text em { font-style: normal; font-weight: 600; }
+
+  /* Every tile: same size, same type. Long testimonials show their key line
+     here and open in full in the reader below. */
+  .testimonial-track .testimonial-text {
+    font-size: 19px;
+    line-height: 1.7;
+    color: #fff;
+    margin-bottom: 18px;
+  }
+  .testimonial-more {
+    align-self: flex-start;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0 0 22px;
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    cursor: pointer;
+  }
+  .testimonial-more::after { content: ' \2192'; }
+  .testimonial-more:hover { color: var(--parchment); }
+
+  /* Full-testimonial reader */
+  .t-reader {
+    position: fixed; inset: 0; z-index: 2000;
+    display: none; align-items: center; justify-content: center;
+    padding: 24px;
+    background: rgba(20,32,24,0.78);
+  }
+  .t-reader.open { display: flex; }
+  .t-reader-box {
+    position: relative;
+    width: min(640px, 100%);
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    background: var(--forest);
+    border: 1px solid rgba(176,141,74,0.3);
+    border-top: 2px solid var(--gold);
+    padding: 44px 44px 32px;
+  }
+  .t-reader-text {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.75;
+    color: #fff;
+    margin: 16px 0 28px;
+  }
+  .t-reader-close {
+    position: absolute; top: 12px; right: 16px;
+    background: none; border: none; cursor: pointer;
+    font-size: 28px; line-height: 1; color: var(--gold-light);
+  }
+  @media (max-width: 560px) { .t-reader-box { padding: 40px 24px 24px; } }
 </style>
 </head>
 <body>
@@ -1442,8 +1495,12 @@
     <div class="testimonial-card">
       <div class="testimonial-stars">★★★★★</div>
       <p class="testimonial-text">
-        Taylor is a master at rooting out family history and genealogy. <span class="hl">He found direct ancestors in my and my husband's lines that heretofore we did not know existed.</span> Knowing this information has given us a connection to our family history that we didn't have before. He leaves no stone unturned and is a pleasure to work with.
+        He found direct ancestors in my and my husband's lines that heretofore we did not know existed.
       </p>
+      <button class="testimonial-more" type="button">Read full testimonial</button>
+      <div class="testimonial-full" hidden>
+        Taylor is a master at rooting out family history and genealogy. He found direct ancestors in my and my husband's lines that heretofore we did not know existed. Knowing this information has given us a connection to our family history that we didn't have before. He leaves no stone unturned and is a pleasure to work with.
+      </div>
       <div class="testimonial-footer">
           <div class="testimonial-meta">
         <div class="testimonial-author">Tessa S.</div>
@@ -1457,8 +1514,12 @@
     <div class="testimonial-card">
       <div class="testimonial-stars">★★★★★</div>
       <p class="testimonial-text">
-        Taylor is a talented historian and meticulous researcher. I am very impressed by how deep he was able to go in both my and my wife’s ancestry. We love reading all the documents Taylor provided on our ancestors. <span class="hl">It has given us a solid connection to our past we would have never had without Taylor’s findings.</span>
+        It has given us a solid connection to our past we would have never had without Taylor’s findings.
       </p>
+      <button class="testimonial-more" type="button">Read full testimonial</button>
+      <div class="testimonial-full" hidden>
+        Taylor is a talented historian and meticulous researcher. I am very impressed by how deep he was able to go in both my and my wife’s ancestry. We love reading all the documents Taylor provided on our ancestors. It has given us a solid connection to our past we would have never had without Taylor’s findings.
+      </div>
       <div class="testimonial-footer">
           <div class="testimonial-meta">
         <div class="testimonial-author">Neal S.</div>
@@ -1472,9 +1533,13 @@
     <div class="testimonial-card">
       <div class="testimonial-stars">★★★★★</div>
       <p class="testimonial-text">
-        Tracing the American story to rightly stand in place as a Son of the Revolution is an honor.
-        I am truly indebted to Taylor Turner for his guidance, his knowledge, his expertise and kind perseverance throughout the process. <span class="hl">His skill in detangling and weaving my own personal heritage into the Great American Tapestry is indeed a monumental gift.</span>
+        His skill in detangling and weaving my own personal heritage into the Great American Tapestry is indeed a monumental gift.
       </p>
+      <button class="testimonial-more" type="button">Read full testimonial</button>
+      <div class="testimonial-full" hidden>
+        Tracing the American story to rightly stand in place as a Son of the Revolution is an honor.
+        I am truly indebted to Taylor Turner for his guidance, his knowledge, his expertise and kind perseverance throughout the process. His skill in detangling and weaving my own personal heritage into the Great American Tapestry is indeed a monumental gift.
+      </div>
       <div class="testimonial-footer">
           <div class="testimonial-meta">
         <div class="testimonial-author">Dan B.</div>
@@ -1520,8 +1585,12 @@
     <div class="testimonial-card">
       <div class="testimonial-stars">★★★★★</div>
       <p class="testimonial-text">
-        Taylor was extremely helpful throughout my Sons of the Revolution application process, bringing both diligence and judgment to a complex historical research project. <span class="hl">His work helped uncover meaningful family history, clarify lineage questions, and assemble the supporting materials in a way that was thorough, organized, and easy to follow.</span> I would strongly recommend him to anyone pursuing genealogical or historical research.
+        His work helped uncover meaningful family history, clarify lineage questions, and assemble the supporting materials in a way that was thorough, organized, and easy to follow.
       </p>
+      <button class="testimonial-more" type="button">Read full testimonial</button>
+      <div class="testimonial-full" hidden>
+        Taylor was extremely helpful throughout my Sons of the Revolution application process, bringing both diligence and judgment to a complex historical research project. His work helped uncover meaningful family history, clarify lineage questions, and assemble the supporting materials in a way that was thorough, organized, and easy to follow. I would strongly recommend him to anyone pursuing genealogical or historical research.
+      </div>
       <div class="testimonial-footer">
           <div class="testimonial-meta">
         <div class="testimonial-author">Christian S.</div>
@@ -1535,8 +1604,12 @@
     <div class="testimonial-card">
       <div class="testimonial-stars">★★★★★</div>
       <p class="testimonial-text">
-        Taylor assisted me in the research of the Jefferson family line in preparation for my application to the Society of Colonial Wars. His work is thorough and efficient. <span class="hl">His enthusiasm for genealogy is infectious.</span> Taylor was a delight to work with on this project and I am grateful for his efforts.
+        His enthusiasm for genealogy is infectious.
       </p>
+      <button class="testimonial-more" type="button">Read full testimonial</button>
+      <div class="testimonial-full" hidden>
+        Taylor assisted me in the research of the Jefferson family line in preparation for my application to the Society of Colonial Wars. His work is thorough and efficient. His enthusiasm for genealogy is infectious. Taylor was a delight to work with on this project and I am grateful for his efforts.
+      </div>
       <div class="testimonial-footer">
           <div class="testimonial-meta">
         <div class="testimonial-author">Rodney J.</div>
@@ -1567,10 +1640,14 @@
     <div class="testimonial-card">
       <div class="testimonial-stars">★★★★★</div>
       <p class="testimonial-text">
-        Taylor Turner was an excellent resource for the genealogical research needed to complete my application for the Society of Colonial Wars. He worked quickly and was attentive to all my questions. In addition to my SCWVA application, Taylor also helped me with a secondary pursuit for a legitimate family crest, so that I could design an heirloom signet ring. <span class="hl">He was able to identify a legitimate ancestral connection with a coat of arms and provided a full history for my records.</span> He also helped with the design of the ring and put me in touch with a quality local jeweler.
+        He was able to identify a legitimate ancestral connection with a coat of arms and provided a full history for my records.
+      </p>
+      <button class="testimonial-more" type="button">Read full testimonial</button>
+      <div class="testimonial-full" hidden>
+        Taylor Turner was an excellent resource for the genealogical research needed to complete my application for the Society of Colonial Wars. He worked quickly and was attentive to all my questions. In addition to my SCWVA application, Taylor also helped me with a secondary pursuit for a legitimate family crest, so that I could design an heirloom signet ring. He was able to identify a legitimate ancestral connection with a coat of arms and provided a full history for my records. He also helped with the design of the ring and put me in touch with a quality local jeweler.
         <br><br>
         I highly recommend Mr. Turner for any genealogical work, especially for those who endeavor to join ancestral societies that require complex records to certify membership.
-      </p>
+      </div>
       <div class="testimonial-footer">
           <div class="testimonial-meta">
         <div class="testimonial-author">Cameron M.</div>
@@ -1601,6 +1678,30 @@
 
   document.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
 
+
+  // Full-testimonial reader (opened from "Read full testimonial" on a tile)
+  (() => {
+    const reader = document.createElement('div');
+    reader.className = 't-reader';
+    reader.setAttribute('role', 'dialog');
+    reader.setAttribute('aria-modal', 'true');
+    reader.innerHTML = '<div class="t-reader-box"><button class="t-reader-close" type="button" aria-label="Close">&times;</button><div class="testimonial-stars">\u2605\u2605\u2605\u2605\u2605</div><div class="t-reader-text"></div><div class="testimonial-footer"></div></div>';
+    document.body.appendChild(reader);
+    const close = () => { reader.classList.remove('open'); document.body.style.overflow = ''; };
+    reader.addEventListener('click', e => { if (e.target === reader || e.target.closest('.t-reader-close')) close(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+    document.addEventListener('click', e => {
+      const btn = e.target.closest('.testimonial-more');
+      if (!btn) return;
+      const card = btn.closest('.testimonial-card');
+      reader.querySelector('.t-reader-text').innerHTML = card.querySelector('.testimonial-full').innerHTML;
+      reader.querySelector('.testimonial-footer').innerHTML = card.querySelector('.testimonial-footer').innerHTML;
+      reader.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      reader.querySelector('.t-reader-close').focus();
+    });
+  })();
+
   // Testimonial carousel: cycles right to left on its own. Visitors can
   // scroll, swipe or drag it; it picks up cycling again once they stop.
   document.querySelectorAll('.testimonial-marquee').forEach(marquee => {
@@ -1609,54 +1710,6 @@
     const RESUME_AFTER_MS = 1500;  // pause after the visitor stops scrolling
 
     // Three copies of the cards so there is always room to scroll either way.
-    // Size every tile so its text fills it to the footer: all tiles share one
-    // height, and a tile with more text gets wider instead of taller.
-    const fitTiles = () => {
-      const cards = [...track.children];
-      const vw = marquee.clientWidth || window.innerWidth;
-      const maxW = Math.min(720, vw * 0.88);
-      const minW = Math.min(300, maxW);
-      const baseW = Math.min(360, maxW);
-      track.style.alignItems = 'flex-start';
-      const heightAt = (card, w) => {
-        card.style.width = w + 'px';
-        card.style.height = 'auto';
-        return card.offsetHeight;
-      };
-      const base = cards.map(c => heightAt(c, baseW)).sort((a, b) => a - b);
-      const typical = base[Math.floor(base.length / 2)];
-      const longest = Math.max(...cards.map(c => heightAt(c, maxW)));
-      const H = Math.max(typical, longest);
-      cards.forEach(card => {
-        // Never narrower than the footer needs (name, location and every logo on one row).
-        const meta = card.querySelector('.testimonial-meta');
-        const logos = card.querySelector('.testimonial-logos');
-        const pad = parseFloat(getComputedStyle(card).paddingLeft) + parseFloat(getComputedStyle(card).paddingRight);
-        const footNeed = Math.ceil((meta ? meta.scrollWidth : 0) + (logos ? logos.scrollWidth : 0) + 24 + pad);
-        let lo = Math.min(maxW, Math.max(minW, footNeed)), hi = maxW;
-        if (heightAt(card, lo) <= H) hi = lo;
-        while (hi - lo > 4) {
-          const mid = (lo + hi) / 2;
-          if (heightAt(card, mid) <= H) hi = mid; else lo = mid;
-        }
-        const w = Math.ceil(hi);
-        // A quote too short to fill even the narrowest tile is set larger instead.
-        const text = card.querySelector('.testimonial-text');
-        text.style.fontSize = '';
-        if (heightAt(card, w) < H - 8) {
-          let size = 17;
-          while (size < 30) {
-            text.style.fontSize = (size + 1) + 'px';
-            if (heightAt(card, w) > H) { text.style.fontSize = size + 'px'; break; }
-            size += 1;
-          }
-        }
-        card.style.width = w + 'px';
-        card.style.height = H + 'px';
-      });
-      track.style.alignItems = '';
-    };
-    fitTiles();
 
     const originals = [...track.children];
     for (let i = 0; i < 2; i++) {
@@ -1717,6 +1770,13 @@
       if (!dragging) return;
       marquee.scrollLeft = dragStartScroll - (e.clientX - dragStartX);
     });
+    let downScroll = 0;
+    marquee.addEventListener('pointerdown', () => { downScroll = marquee.scrollLeft; }, true);
+    marquee.addEventListener('click', e => {
+      if (Math.abs(marquee.scrollLeft - downScroll) > 6 && e.target.closest('.testimonial-more')) {
+        e.stopPropagation(); e.preventDefault();
+      }
+    }, true);
     window.addEventListener('pointerup', () => {
       if (!dragging) return;
       dragging = false;
@@ -1739,7 +1799,6 @@
 
     const refit = () => {
       const ratio = pos / setWidth;
-      fitTiles();
       setWidth = track.scrollWidth / 3;
       pos = ratio * setWidth;
       marquee.scrollLeft = pos;
